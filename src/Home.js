@@ -12,6 +12,7 @@ function Home() {
         />
         <div className="home__row">
           <Product
+            id="111"
             title="Apple iPhone 13 (128GB) - Pink"
             price={74999}
             image={
@@ -22,6 +23,7 @@ function Home() {
         </div>
         <div className="home__row">
           <Product
+            id="112"
             title={"The Alchemist"}
             price={220}
             rating={4}
@@ -30,6 +32,7 @@ function Home() {
             }
           />
           <Product
+            id="113"
             title={
               "Dalmond Truffles Handmade Almond Date Chocolates Gift Pack-12 Pcs, Assorted - Dark, Milk & White Chocolates Gift Box [250 GMS]"
             }
@@ -42,6 +45,7 @@ function Home() {
         </div>
         <div className="home__row">
           <Product
+            id="114"
             title={
               "TP-Link Archer AC1200 Archer C6 Wi-Fi Speed Up to 867 Mbps/5 GHz + 300 Mbps/2.4 GHz,Wireless Router"
             }
@@ -52,6 +56,7 @@ function Home() {
             }
           />
           <Product
+            id="115"
             title={
               "Apple Watch Series 7 (GPS + Cellular, 45mm) - Midnight Aluminium Case with Midnight Sport Band - Regular"
             }
@@ -62,6 +67,7 @@ function Home() {
             }
           />
           <Product
+            id="116"
             title={
               "Lenovo V15 Intel Celeron N4020 15.6 FHD (1080p)(39.62 cm) HD Thin and Light Laptop (4GB RAM/1 TB HDD / DOS /Iron Grey/1 Year Onsite Warranty/1.7 kg), 82C30052IH"
             }
@@ -74,6 +80,7 @@ function Home() {
         </div>
         <div className="home__row">
           <Product
+            id="117"  
             title={
               "Samsung S21 Ultra 5G with Snapdragon 888 (Phantom Silver, 12GB RAM, 256GB Storage)"
             }
