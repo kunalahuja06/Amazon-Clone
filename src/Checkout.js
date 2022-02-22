@@ -4,7 +4,13 @@ import { useStateValue } from './StateProvider';
 import Subtotal from './Subtotal'
 import CheckoutProduct from './CheckoutProduct'
 function Checkout() {
-  const [{basket}] =useStateValue()
+  const [{basket,user}] =useStateValue()
+  const clickhandle = () => {
+    // if(user){
+    //   const email=user.email
+    //   console.log(email)
+    // }
+  };
   return (
     <div className="checkout">
       <div className="checkout__items">
@@ -14,7 +20,9 @@ function Checkout() {
           alt="amazon ad"
         />
         <div>
+          <h3 className='checkout__greet'>Hello, {user?user.email:'Guest'}</h3>
           <h1 className="checkout__title">Your Shopping Basket</h1>
+          {/* <button onClick={clickhandle}>Click me</button> */}
           {
             basket.map((item) => (
               <CheckoutProduct

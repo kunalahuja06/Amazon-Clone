@@ -5,8 +5,15 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
 import {Link} from 'react-router-dom';
 import { useStateValue } from "./StateProvider";
+import { auth } from "./firebase";
 function Header() {
-  const [{basket},action]=useStateValue()
+  const [{basket,user},action]=useStateValue()
+
+  const handleAuth = () => {
+    if (user) {
+      auth.signOut()
+    }
+  };
   return (
     <div className="header">
       <Link to="/">
@@ -31,10 +38,12 @@ function Header() {
         <SearchIcon className="header__searchIcon" />
       </div>
       <div className="header__nav">
-        <div className="header__menu">
-          <span className="header__menu__Line1">Hello Guest</span>
-          <span className="header__menu__Line2">Sign in</span>
-        </div>
+        <Link to={!user && "/login"}>
+          <div onClick={handleAuth} className="header__menu">
+            <span className="header__menu__Line1">Hello Guest</span>
+            <span className="header__menu__Line2">{user?'Sign Out':'Sign in'}</span>
+          </div>
+        </Link>
         <div className="header__menu">
           <span className="header__menu__Line1">Returns</span>
           <span className="header__menu__Line2">& Orders</span>
@@ -43,10 +52,12 @@ function Header() {
           <span className="header__menu__Line1">Your</span>
           <span className="header__menu__Line2">Prime</span>
         </div>
-        <Link to='/checkout'>
+        <Link to="/checkout">
           <div className="header__cart">
             <ShoppingBasketIcon />
-            <span className="header__menu__Line2 header__basketCount">{basket.length}</span>
+            <span className="header__menu__Line2 header__basketCount">
+              {basket.length}
+            </span>
           </div>
         </Link>
       </div>
