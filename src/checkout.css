@@ -17,6 +17,9 @@
     margin-right: 10px;
     padding-top: 10px;
     padding-left: 10px;
-    padding-right: 10px;
-    
+    padding-right: 10px;  
+}
+.checkout__empty{
+    margin-right:10px;
+    padding: 10px;
 }

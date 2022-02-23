@@ -7,7 +7,7 @@ import {Link} from 'react-router-dom';
 import { useStateValue } from "./StateProvider";
 import { auth } from "./firebase";
 function Header() {
-  const [{basket,user},action]=useStateValue()
+  const [{basket,user,username},action]=useStateValue()
 
   const handleAuth = () => {
     if (user) {
@@ -29,7 +29,7 @@ function Header() {
           <LocationOnIcon className="header__location__icon__main" />
         </div>
         <div className="header__location__content">
-          <span className="header__location__text">Deliver to Kunal</span>
+          <span className="header__location__text">Deliver to {user?username:'Guest'}</span>
           <span className="header__location__location">Kanker 494334</span>
         </div>
       </div>
@@ -40,7 +40,7 @@ function Header() {
       <div className="header__nav">
         <Link to={!user && "/login"}>
           <div onClick={handleAuth} className="header__menu">
-            <span className="header__menu__Line1">Hello Guest</span>
+            <span className="header__menu__Line1">Hello {user?username:'Guest'}</span>
             <span className="header__menu__Line2">{user?'Sign Out':'Sign in'}</span>
           </div>
         </Link>

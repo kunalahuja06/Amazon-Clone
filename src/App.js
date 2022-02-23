@@ -18,7 +18,7 @@ function App() {
         })
       }else{
         dispatch({
-          type: "SET_USER",
+          type: "REMOVE_USER",
           user: null,
         });
       }
