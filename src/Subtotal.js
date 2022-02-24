@@ -7,7 +7,7 @@ import './subtotal.css'
 
 function Subtotal() {
   const navigate=useNavigate()
-  const [{basket},dispatch]=useStateValue()
+  const [{basket}]=useStateValue()
   return (
     <div className="subtotal">
       <CurrencyFormat
@@ -28,7 +28,7 @@ function Subtotal() {
         thousandSeparator={true}
         prefix={"₹"}
       />
-      <button onClick={e=>navigate('/payments')}>Proceed to Checkout</button>
+      <button disabled={basket.length<=0} onClick={e=>navigate('/payments')}>Proceed to Checkout</button>
     </div>
   );
 }

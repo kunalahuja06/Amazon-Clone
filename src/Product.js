@@ -2,7 +2,7 @@ import React from "react";
 import "./product.css";
 import {useStateValue} from './StateProvider'
 function Product({id,title,image,price,rating}) {
-  const [{basket},dispatch]=useStateValue()
+  const [,dispatch]=useStateValue()
   const addToBasket=()=>{
     //dispatch action to context
     dispatch({
@@ -32,7 +32,7 @@ function Product({id,title,image,price,rating}) {
       <img
         className="product__image"
         src={image}
-        alt="product image"
+        alt={""}
       />
       <button onClick={addToBasket}>Add to Basket</button>
     </div>

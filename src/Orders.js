@@ -3,9 +3,10 @@ import { db } from "./firebase";
 import "./orders.css";
 import { useStateValue } from "./StateProvider";
 import Order from "./Order";
+import { Link } from "react-router-dom";
 
 function Orders() {
-  const [{ basket, user }, dispatch] = useStateValue();
+  const [{ user }] = useStateValue();
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
@@ -36,6 +37,11 @@ function Orders() {
           <Order order={order} />
         ))}
       </div>
+      <Link to='/'>
+        <div>
+          <p>Back to Home</p>
+        </div>
+      </Link>
     </div>
   );
 }
