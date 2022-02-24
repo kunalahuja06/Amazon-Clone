@@ -16,7 +16,7 @@ const promise = loadStripe("pk_test_51KWL6JSBxsTRa9UceYk3rvlgvfVSb0FtOdwk5wXNOJX
 
 
 function App() {
-  const [{},dispatch]=useStateValue()
+  const [,dispatch]=useStateValue()
   useEffect(()=>{
     auth.onAuthStateChanged(authUser=>{
       if(authUser){
@@ -39,15 +39,16 @@ function App() {
           <Route path="/" element={[<Header />, <Home />]} />
           <Route path="/checkout" element={[<Header />, <Checkout />]} />
           <Route path="/login" element={<Login />} />
+          <Route path="/orders" element={[<Orders />]} />
           <Route
             path="/payments"
-            element={[<Header/>,
+            element={[
+              <Header />,
               <Elements stripe={promise}>
                 <Payment />
-              </Elements>
+              </Elements>,
             ]}
           />
-          <Route path="/orders" element={[<Orders/>]}/>
         </Routes>
       </div>
     </Router>

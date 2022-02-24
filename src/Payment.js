@@ -7,6 +7,7 @@ import { getBasketTotal } from "./reducer";
 import { Link, useNavigate } from 'react-router-dom';
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import axios from './axios';
+import {db} from './firebase'
 
 function Payment() {
     
@@ -44,9 +45,22 @@ function Payment() {
           card:elements.getElement(CardElement)
         }
       }).then(({paymentIntent})=>{
+
+        db
+          .collection('users')
+          .doc(user?.uid)
+          .collection('orders')
+          .doc(paymentIntent.id)
+          .set({
+            basket:basket,
+            amount:getBasketTotal(basket),
+            created:paymentIntent.created
+          })
+
         setSucceeded(true)
         setError(null)
         setProcessing(false)
+
         dispatch({
           type:'EMPTY_BASKET'
         })

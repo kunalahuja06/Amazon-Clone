@@ -29,7 +29,9 @@ function Header() {
           <LocationOnIcon className="header__location__icon__main" />
         </div>
         <div className="header__location__content">
-          <span className="header__location__text">Deliver to {user?username:'Guest'}</span>
+          <span className="header__location__text">
+            Deliver to {user ? username : "Guest"}
+          </span>
           <span className="header__location__location">Kanker 494334</span>
         </div>
       </div>
@@ -40,14 +42,20 @@ function Header() {
       <div className="header__nav">
         <Link to={!user && "/login"}>
           <div onClick={handleAuth} className="header__menu">
-            <span className="header__menu__Line1">Hello {user?username:'Guest'}</span>
-            <span className="header__menu__Line2">{user?'Sign Out':'Sign in'}</span>
+            <span className="header__menu__Line1">
+              Hello {user ? username : "Guest"}
+            </span>
+            <span className="header__menu__Line2">
+              {user ? "Sign Out" : "Sign in"}
+            </span>
           </div>
         </Link>
-        <div className="header__menu">
-          <span className="header__menu__Line1">Returns</span>
-          <span className="header__menu__Line2">& Orders</span>
-        </div>
+        <Link to="/orders">
+          <div className="header__menu">
+            <span className="header__menu__Line1">Returns</span>
+            <span className="header__menu__Line2">& Orders</span>
+          </div>
+        </Link>
         <div className="header__menu">
           <span className="header__menu__Line1">Your</span>
           <span className="header__menu__Line2">Prime</span>
