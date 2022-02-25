@@ -37,11 +37,11 @@ function Orders() {
           <Order order={order} />
         ))}
       </div>
-      <Link to='/'>
-        <div>
-          <p>Back to Home</p>
-        </div>
-      </Link>
+      <div>
+        <Link to="/">
+          <p className="orders__back">Back to Home</p>
+        </Link>
+      </div>
     </div>
   );
 }

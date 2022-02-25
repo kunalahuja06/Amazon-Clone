@@ -1,3 +1,6 @@
+*{
+    text-decoration: none;
+}
 body{
     background-color:#f3f3f3 !important ;
 }
@@ -6,4 +9,11 @@ body{
 }
 .orders > h1 {
     margin: 30px 0;
+}
+.orders__back{
+    font-weight:600;
+    font-size:larger;
+    color:brown;
+    text-align: center;
+    
 }
